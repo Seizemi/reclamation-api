@@ -14,6 +14,7 @@ router.put("/api/fiche-reclamation/:id/informations", (req, res) => {
   const bookingNumber = req.body.bookingNumber;
   const customerName = req.body.customerName;
   const salesChannel = req.body.salesChannel;
+  const language = req.body.language;
   const dateOfArrival = req.body.dateOfArrival === null ? null : new Date(req.body.dateOfArrival);
   const dateOfDeparture = req.body.dateOfDeparture === null ? null : new Date(req.body.dateOfDeparture);
   const seasonLabel = req.body.seasonLabel;
@@ -27,7 +28,6 @@ router.put("/api/fiche-reclamation/:id/informations", (req, res) => {
   const serviceId = req.body.serviceId;
   const supplier = req.body.supplier;
   const product = req.body.product;
-  const status = req.body.status;
   const reason = req.body.reason;
   const claimSummary = req.body.claimSummary;
   const solution = req.body.solution;
@@ -46,12 +46,13 @@ router.put("/api/fiche-reclamation/:id/informations", (req, res) => {
   const supplierSuppInfo = req.body.supplierSuppInfo;
   db.query(
     "UPDATE claims\
-      SET bookingNumber=?, customerName=?, salesChannel=?, dateOfArrival=?, dateOfDeparture=?, seasonLabel=?, seasonValue=?, state=?, stateLabel=?, followedBy=?, customerAkioNumber=?, supplierAkioNumber=?, service=?, serviceId=?, supplier=?, product=?,status=?, reason=?, claimSummary=?, solution=?, purposeOfSolution=?, dateOfReceivedClaim=?, dateOfStartFollowUp=?, dateLastUpdate=?, updateReason=?, dateEndOfFollowUp=?, refound=?, refoundState=?, customerVoucher=?, customerUsedVoucher=?, supplierRefund=?, customerSuppInfo=?, supplierSuppInfo=?\
+      SET bookingNumber=?, customerName=?, salesChannel=?,language=?, dateOfArrival=?, dateOfDeparture=?, seasonLabel=?, seasonValue=?, state=?, stateLabel=?, followedBy=?, customerAkioNumber=?, supplierAkioNumber=?, service=?, serviceId=?, supplier=?, product=?, reason=?, claimSummary=?, solution=?, purposeOfSolution=?, dateOfReceivedClaim=?, dateOfStartFollowUp=?, dateLastUpdate=?, updateReason=?, dateEndOfFollowUp=?, refound=?, refoundState=?, customerVoucher=?, customerUsedVoucher=?, supplierRefund=?, customerSuppInfo=?, supplierSuppInfo=?\
       WHERE id = ?",
     [
       bookingNumber,
       customerName,
       salesChannel,
+      language,
       dateOfArrival,
       dateOfDeparture,
       seasonLabel,
@@ -65,7 +66,6 @@ router.put("/api/fiche-reclamation/:id/informations", (req, res) => {
       serviceId,
       supplier,
       product,
-      status,
       reason,
       claimSummary,
       solution,
