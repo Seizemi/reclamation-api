@@ -27,6 +27,8 @@ router.put("/api/fiche-reclamation/:id/informations", (req, res) => {
   const service = req.body.service;
   const serviceId = req.body.serviceId;
   const supplier = req.body.supplier;
+  const skissim = req.body.skissim ? 1 : 0;
+  const skissimType = req.body.skissimType;
   const product = req.body.product;
   const reason = req.body.reason;
   const claimSummary = req.body.claimSummary;
@@ -46,7 +48,7 @@ router.put("/api/fiche-reclamation/:id/informations", (req, res) => {
   const supplierSuppInfo = req.body.supplierSuppInfo;
   db.query(
     "UPDATE claims\
-      SET bookingNumber=?, customerName=?, salesChannel=?,language=?, dateOfArrival=?, dateOfDeparture=?, seasonLabel=?, seasonValue=?, state=?, stateLabel=?, followedBy=?, customerAkioNumber=?, supplierAkioNumber=?, service=?, serviceId=?, supplier=?, product=?, reason=?, claimSummary=?, solution=?, purposeOfSolution=?, dateOfReceivedClaim=?, dateOfStartFollowUp=?, dateLastUpdate=?, updateReason=?, dateEndOfFollowUp=?, refound=?, refoundState=?, customerVoucher=?, customerUsedVoucher=?, supplierRefund=?, customerSuppInfo=?, supplierSuppInfo=?\
+      SET bookingNumber=?, customerName=?, salesChannel=?,language=?, dateOfArrival=?, dateOfDeparture=?, seasonLabel=?, seasonValue=?, state=?, stateLabel=?, followedBy=?, customerAkioNumber=?, supplierAkioNumber=?, service=?, serviceId=?, supplier=?, skissim=?, skissimType=?, product=?, reason=?, claimSummary=?, solution=?, purposeOfSolution=?, dateOfReceivedClaim=?, dateOfStartFollowUp=?, dateLastUpdate=?, updateReason=?, dateEndOfFollowUp=?, refound=?, refoundState=?, customerVoucher=?, customerUsedVoucher=?, supplierRefund=?, customerSuppInfo=?, supplierSuppInfo=?\
       WHERE id = ?",
     [
       bookingNumber,
@@ -65,6 +67,8 @@ router.put("/api/fiche-reclamation/:id/informations", (req, res) => {
       service,
       serviceId,
       supplier,
+      skissim,
+      skissimType,
       product,
       reason,
       claimSummary,
