@@ -14,6 +14,7 @@ const informations = require("./src/pages/Claim/Informations/Informations");
 const Edition = require("./src/pages/Claim/Edition/Edition");
 const DashboardClaim = require("./src/pages/Dashboard/DashboardClaim");
 const NewClaim = require("./src/pages/NewProject/NewClaim/NewClaim");
+const ClaimStatistic = require("./src/pages/Statistics/ClaimStatistic");
 
 app.use(cors());
 app.use(express.json());
@@ -25,6 +26,8 @@ app.use(informations);
 app.use(Edition);
 
 app.use(NewClaim);
+
+app.use(ClaimStatistic);
 
 app.listen(3001, () => {
   console.log("console running on port 3001");

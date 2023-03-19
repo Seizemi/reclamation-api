@@ -48,9 +48,9 @@ router.post("/api/nouvelle-reclamation/reclamation", (req, res) => {
 
   db.query(
     "INSERT INTO claims \
-      (bookingNumber,customerName,salesChannel,language,dateOfArrival,dateOfDeparture,seasonLabel,seasonValue,state,stateLabel,followedBy,customerAkioNumber,supplierAkioNumber,service,serviceId,supplier,skissim,skissimType,product,reason,claimSummary,solution,purposeOfSolution,dateOfReceivedClaim,dateOfStartFollowUp,dateLastUpdate,updateReason,dateEndOfFollowUp,refound,refoundState,customerVoucher,customerUsedVoucher,supplierRefund,customerSuppInfo,supplierSuppInfo) \
+      (bookingNumber, customerName, salesChannel,language, dateOfArrival, dateOfDeparture, seasonLabel, seasonValue, state, stateLabel, followedBy, customerAkioNumber, supplierAkioNumber, service, serviceId, supplier, skissim, skissimType, product, reason, claimSummary, solution, purposeOfSolution, dateOfReceivedClaim, dateOfStartFollowUp, dateLastUpdate, updateReason, dateEndOfFollowUp, refound, refoundState, customerVoucher, customerUsedVoucher, supplierRefund, customerSuppInfo, supplierSuppInfo) \
       VALUE \
-      (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
     [
       bookingNumber,
       customerName,
