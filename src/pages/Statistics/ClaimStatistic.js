@@ -13,26 +13,28 @@ const db = mysql.createConnection({
   database: "reclamation",
 });
 
-router.get("/api/statistiques/reclamation/graphique1/:firstChosenSeason", (req, res) => {
+router.get("/api/statistiques/reclamation/graphique1/:firstChosenSeason/:currentSeasonValue", (req, res) => {
   const firstChosenSeason = req.params.firstChosenSeason;
+  const currentSeasonValue = req.params.currentSeasonValue;
   db.query("SELECT * FROM claims WHERE seasonValue = ?", [firstChosenSeason], (err, result) => {
     if (err) {
       console.log(err);
     } else {
       const currentWeek = currentWeekFromDate(new Date());
-      res.send(weekNumberListFromClaims([result], currentWeek, firstChosenSeason));
+      res.send(weekNumberListFromClaims([result], currentWeek, firstChosenSeason, currentSeasonValue));
     }
   });
 });
 
-router.get("/api/statistiques/reclamation/graphique2/:secondChosenSeason", (req, res) => {
+router.get("/api/statistiques/reclamation/graphique2/:secondChosenSeason/:currentSeasonValue", (req, res) => {
   const secondChosenSeason = req.params.secondChosenSeason;
+  const currentSeasonValue = req.params.currentSeasonValue;
   db.query("SELECT * FROM claims WHERE seasonValue = ?", [secondChosenSeason], (err, result) => {
     if (err) {
       console.log(err);
     } else {
       const currentWeek = currentWeekFromDate(new Date());
-      res.send(weekNumberListFromClaims([result], currentWeek, secondChosenSeason));
+      res.send(weekNumberListFromClaims([result], currentWeek, secondChosenSeason, currentSeasonValue));
     }
   });
 });

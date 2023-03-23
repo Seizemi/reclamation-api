@@ -1,6 +1,6 @@
 import currentWeekFromDate from "./currentWeekFromDate.js";
 
-const weekNumberListFromClaims = ([claims], currentWeek, seasonValue) => {
+const weekNumberListFromClaims = ([claims], currentWeek, seasonValue, currentSeasonValue) => {
   const dataListeOfWeekFR = [];
   const dataListeOfWeekEN = [];
   const dataListeOfWeekNL = [];
@@ -25,10 +25,7 @@ const weekNumberListFromClaims = ([claims], currentWeek, seasonValue) => {
     }
   } else {
     claimLabel = seasonValue.substring(0, 5);
-    let claimFirstYearOfWinter = new Date(seasonValue.substring(5, 9)).getFullYear();
-    let claimSecondYearOfWinter = new Date(seasonValue.substring(10, 14)).getFullYear();
-    if (currentYear === claimFirstYearOfWinter || currentYear === claimSecondYearOfWinter) {
-      //Attention : Ici ce test devrait être fait sur la saison et non sur l'année car sur l'année N+1 on limite la weekNumber à celle en cours
+    if (currentSeasonValue === seasonValue) {
       winterMaxWeekNumber = currentWeek;
     }
   }
