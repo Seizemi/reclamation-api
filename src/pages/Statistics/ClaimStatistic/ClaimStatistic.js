@@ -1,7 +1,8 @@
-import weekNumberListFromClaims from "../../asset/Statistics/weekNumberListFromClaims.js";
-import currentWeekFromDate from "../../asset/Statistics/currentWeekFromDate.js";
-import stateDistributionFromClaims from "../../asset/Statistics/stateDistributionFromClaims.js";
-import skissimDistributionFromClaims from "../../asset/Statistics/skissimDistributionFromClaims.js";
+import weekNumberListFromClaims from "../../../asset/Statistics/ClaimStatistic/weekNumberListFromClaims";
+import currentWeekFromDate from "../../../asset/Statistics/ClaimStatistic/currentWeekFromDate";
+import stateDistributionFromClaims from "../../../asset/Statistics/ClaimStatistic/stateDistributionFromClaims";
+import skissimDistributionFromClaims from "../../../asset/Statistics/ClaimStatistic/skissimDistributionFromClaims";
+
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
